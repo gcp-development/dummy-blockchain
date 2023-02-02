@@ -5,7 +5,7 @@ metadata:
   namespace: dummy-blockchain
 spec:
   containers:
-    - name: bode-c
+    - name: node-c
       image: bsilveira1974/p2p-node:1.0
       ports:
         - containerPort: 4242
