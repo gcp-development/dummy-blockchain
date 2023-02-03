@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-e
+  namespace: dummy-blockchain
+spec:
+  containers:
+    - name: node-e
+      image: bsilveira1974/p2p-node:1.0
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 4242
