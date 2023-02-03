@@ -1,3 +1,4 @@
 # Kubernetes Setup
 
-![image](https://user-images.githubusercontent.com/76512851/216375267-e3806a33-c296-4582-b557-ef23293ee224.png)
+![image](https://user-images.githubusercontent.com/76512851/216658053-29ee4f9e-2f29-447c-869f-ea15c59d4429.png)
+
