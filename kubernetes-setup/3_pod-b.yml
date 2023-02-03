@@ -7,5 +7,6 @@ spec:
   containers:
     - name: node-b
       image: bsilveira1974/p2p-node:1.0
+      imagePullPolicy: IfNotPresent
       ports:
         - containerPort: 4242
