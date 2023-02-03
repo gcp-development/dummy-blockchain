@@ -1,7 +1,8 @@
 use libp2p::{
     futures::StreamExt,
     identity,
-    mdns::{Mdns, MdnsConfig, MdnsEvent},
+    //mdns,
+    //mdns::{Mdns, MdnsConfig, MdnsEvent},
     swarm::{Swarm, SwarmEvent},
     PeerId,
 };
@@ -9,11 +10,20 @@ use std::error::Error;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+
     let id_keys = identity::Keypair::generate_ed25519();
     let peer_id = PeerId::from(id_keys.public());
     println!("Local peer id: {:?}", peer_id);
     let transport = libp2p::development_transport(id_keys).await?;
-    let behaviour = Mdns::new(MdnsConfig::default()).await?;
+
+    // Create an MDNS network behaviour.
+    //libp2p::mdns::async_io::Mdns
+    //libp2p::mdns::tokio
+    let behaviour = mdns::async_io::Behaviour::new(mdns::Config::default(), peer_id)?;
+
+/*
+    //let behaviour = Mdns::new(MdnsConfig::default()).await?;
+
     let mut swarm = Swarm::new(transport, behaviour, peer_id);
 
     swarm.listen_on("/ip4/0.0.0.0/tcp/0".parse()?)?;
@@ -35,4 +45,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
             _ => {}
         }
     }
+     */
+    Ok(())
 }
